@@ -1,2 +1,4 @@
-<h1>Welcome</h1>
-<p>This is just a landing page.  We'll edit this later</p>
+<% @posts.each do |post| %>
+<%= render 'posts/post', post: post %>
+<br /> <br /> <br /> <br />
+<% end %>
