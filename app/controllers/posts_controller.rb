@@ -22,20 +22,16 @@ class PostsController < ApplicationController
   end
 
   # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(post_params)
 
-    respond_to do |format|
+
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @post }
+        redirect_to @post, notice: 'Post was successfully created.'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+	render action: 'new'
   end
+    end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
@@ -52,14 +48,10 @@ class PostsController < ApplicationController
   end
 
   # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
+    redirect_to posts_url
     end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
