@@ -29,6 +29,10 @@
 <li>
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </li>
+<% else %>
+<li>
+<%= link_to "Login", "/users/sign_in" %>
+</li>
 <% end %>
 </ul>
 <h1>
