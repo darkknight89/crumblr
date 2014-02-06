@@ -6,6 +6,6 @@ class SessionsController < ApplicationController
   end
   def destroy
     flash[:notice] ='Successfully logged in'
-    redirect_to '/loginlogin'
+    redirect_to '/'
   end
 end
