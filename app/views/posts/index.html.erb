@@ -1,4 +1,9 @@
-<h1>Listing posts</h1>
+<% if user_signed_in? %>
+<% else %>
+redirect_to "/"
+<% end %>
+
+<h1>Manage Posts</h1>
 
 <table class="table">
   <thead>
@@ -24,6 +29,6 @@
   </tbody>
 </table>
 
-<br>
+<br />
 
 <%= link_to 'New Post', new_post_path %>

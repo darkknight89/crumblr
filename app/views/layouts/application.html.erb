@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Moonlight Techs Blog</title>
+  <title>Moonlight Techs Forums Blog</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://moonlighttechsforums.com/dev/blog/bootstrap.min.css">
   
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div class="container">
 <div class="page-header">
-
 <ul class="nav nav-pills pull-right">
- 
+<!-- Display welcome message if logged in -->
+<% if user_signed_in? %>
+<div id="user_welcome"><p>Signed in as <%= current_user.email %></p></div>
+<% else %>
+<% end %>
+
+<!-- Begin Nav Links -->
 <li>
 <%= link_to "Home", "/" %>
 </li>
@@ -22,19 +27,28 @@
 <li>
 <%= link_to "About", "/about" %>
 </li>
+<!-- If user is signed in, display Manage Posts, Edit Account and Log out -->
 <% if user_signed_in? %>
 <li>
 <%= link_to "Manage Posts", "/posts" %>
 </li>
 <li>
+<%= link_to "Edit Account", "/users/edit" %>
+</li>
+<li>
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </li>
+
+<!-- If not signed in then display Login link -->
 <% else %>
 <li>
 <%= link_to "Login", "/users/sign_in" %>
 </li>
 <% end %>
+
 </ul>
+<!-- End navbar -->
+
 <h1>
 <%= link_to "Moonlight Techs Forums Blog", "/" %>
 <br />
@@ -49,5 +63,6 @@
 </div>
 </div>
 </div>
+<small><p>Powered by Stumblr <br /> &copy;2014 Ben Hodgson & <a href="http://moonlighttechsforums.com">Moonlight Techs Forums</a></p></small>
 </body>
 </html>
