@@ -25,13 +25,23 @@ Crumblr::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.action_mailer.delivery_method = :smtp
+   # Use default logging formatter so that PID and timestamp are not suppressed.
+  config.log_formatter = ::Logger::Formatter.new
+  
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :domain               => 'google.com',
-  :user_name            => 'smtp@google.com',
-  :password             => 'acespades1',
-  :authentication       => 'plain',
-  :enable_starttls_auto => true  }
+
+  :address        => 'smtp.gmail.com',
+
+  :port           => '587',
+
+  :authentication => :plain,
+
+  :user_name      => 'mtfupdates',
+
+  :password       => 'WatfBmtl1',
+
+  :domain             => 'gmail.com', #you can also use google.com}
+    }
 end
