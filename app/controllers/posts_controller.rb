@@ -50,7 +50,7 @@ render action: 'new'
   # DELETE /posts/1
   def destroy
     @post.destroy
-    redirect_to posts_url
+    redirect_to posts_path
     end
 
   private
