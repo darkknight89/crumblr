@@ -79,4 +79,22 @@ Crumblr::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  config.action_mailer.default_url_options = { :host => 'www.moonlighttechsforums.com' }
+
+  config.action_mailer.smtp_settings = {
+
+  :address        => 'smtp.gmail.com',
+
+  :port           => '587',
+
+  :authentication => :plain,
+
+  :user_name      => "mtfupdates,
+
+  :password       => "WatfBmtl1,
+
+  :domain         => 'heroku.com'
+
+  }
 end
